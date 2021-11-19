@@ -9,7 +9,7 @@ from django.db import models
 class CustomUserManager(BaseUserManager):
     def create_user(self, email: str, name: str, phone: str, password: str) -> 'User':
         if not self.model.check_email(email):
-            raise ValueError('must have email.')
+            raise TypeError('must have email.')
 
         if not name:
             raise ValueError('must have name')
